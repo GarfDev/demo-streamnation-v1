@@ -26,16 +26,14 @@ module.exports = {
         use: ['style-loader', 'css-loader', 'postcss-loader'],
       },
 
-      // Loader for image files
-      {
-        test: /\.(?:ico|png|jpg|jpeg|gif)$/i,
-        type: 'asset/resource',
-      },
-
       // Loader for font & svg files
       {
         test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
         type: 'asset/inline',
+      },
+      {
+        test: /\.(png|ico|svg|jpg|jpeg|gif|ogg|mp3|wav)$/i,
+        type: 'asset/resource',
       },
     ],
   },
@@ -46,6 +44,11 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
+  },
+  performance: {
+    hints: false,
+    maxEntrypointSize: 512000,
+    maxAssetSize: 512000,
   },
   plugins: [
     new HtmlWebpackPlugin({

@@ -1,14 +1,17 @@
 import React from 'react';
-import usePlayerDuo from './hooks/usePlayerDuo';
+import { Route, Routes } from 'react-router';
+
 import Donation from './modules/donation';
+import Notification from './modules/notification';
 // import './App.css'
 
 const App: React.FC = () => {
-  const {} = usePlayerDuo();
-
   return (
     <div id="App">
-      <Donation />
+      <Routes>
+        <Route path="/donation" element={<Donation />} />
+        <Route path="/notification" element={<Notification />} />
+      </Routes>
     </div>
   );
 };
