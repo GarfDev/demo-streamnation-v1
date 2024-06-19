@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router';
 
 import Donation from './modules/donation';
 import Notification from './modules/notification';
+import Highlight from './modules/highlight';
 // import './App.css'
 
 const App: React.FC = () => {
@@ -11,6 +12,7 @@ const App: React.FC = () => {
       <Routes>
         <Route path="/donation" element={<Donation />} />
         <Route path="/notification" element={<Notification />} />
+        <Route path="/highlight" element={<Highlight />} />
       </Routes>
     </div>
   );

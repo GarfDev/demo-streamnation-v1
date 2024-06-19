@@ -7,7 +7,10 @@ import GarfieldWorkerWalkingGif from '../../assets/images/garfield-worker-walkin
 const texts = [
   'cảm ơn các bạn đã theo dõi, cho mình xin 1 tim được không?',
   'ủng hộ mình tại đây: playerduo.net/conmeocam666, cảm ơn mọi người ạ',
+  'ủng hộ mình tại đây: wescan.vn/conmeocam, cảm ơn mọi người ạ',
   'stream có các cảnh quay sử dụng các kỹ năng cao ở cường độ cao, vui lòng cân nhắc ý kiến chuyên môn trước khi xem',
+  'Chỉ với 78 cành các bạn sẽ sở hữu ngay cho mình Niềm vui, còn chần chờ gì nữa mà không đăng ký gói hội viên mang tên Niềm Vui ạ.',
+  'Mình stream từ 2h đến 6h hàng ngày, nhớ đón xem nha',
 ];
 
 const Notification = () => {
@@ -42,8 +45,8 @@ const Notification = () => {
   }, []);
 
   return (
-    <div className="w-[1920px] h-[1080px] relative overflow-hidden">
-      <motion.div className="abolute w-[1920px] h-[100] overflow-hidden absolute m-auto left-0 right-0 bottom-0">
+    <div className="w-[1200px] h-[300px] relative overflow-hidden">
+      <motion.div className="abolute w-[1200px] h-[100] overflow-hidden absolute m-auto left-0 right-0 bottom-0">
         <motion.div
           ref={scope}
           style={{ willChange }}

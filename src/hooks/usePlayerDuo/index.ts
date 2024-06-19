@@ -8,7 +8,6 @@ import {
   haveContentCheck,
   messageParser,
 } from './utils';
-import { SECRECTS } from '../../configs/secrets';
 import { IDonation } from '../../types/donation';
 import historyAtom from '../../atoms/history.atom';
 import donationAtom from '../../atoms/donations.atom';
@@ -36,9 +35,7 @@ const usePlayerDuo = () => {
   );
 
   const authorization = () => {
-    const firstAuth = `40/inside?token=${SECRECTS.API_KEY}&deviceType=browser`;
-    const secAuth = `40/outside?deviceType=browser&playerId=5e3ff61df87d5c2f78e68974`;
-    sendMessage(firstAuth);
+    const secAuth = `40/outside?deviceType=browser&playerId=5f191a4f315035314c20482b`;
     sendMessage(secAuth);
   };
 

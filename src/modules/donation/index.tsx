@@ -4,7 +4,7 @@
 import _ from 'lodash';
 import {
   animate,
-  motion,
+  m as motion,
   useAnimate,
   useWillChange,
   domAnimation,
@@ -18,9 +18,13 @@ import { useInterval } from 'usehooks-ts';
 import { useRecoilState } from 'recoil';
 import donationAtom from '../../atoms/donations.atom';
 import usePlayerDuo from '../../hooks/usePlayerDuo';
+import useWescan from '../../hooks/useWescan';
+
+import YuriDancing from '../../assets/images/yuri-dancing.gif';
 
 function Donation() {
   const {} = usePlayerDuo();
+  const {} = useWescan();
 
   const audioRef = useRef<HTMLAudioElement>(null);
   const { fontSize, ref } = useFitText();
@@ -51,7 +55,7 @@ function Donation() {
 
         animate(
           avatarScope.current,
-          { outline: '10px solid #FF5F00' },
+          { outline: '10px solid #FFC8D5' },
           { duration: 0.4, ease: 'backInOut' }
         );
 
@@ -99,7 +103,7 @@ function Donation() {
 
         animate(
           avatarScope.current,
-          { outline: '0px solid #FF5F00' },
+          { outline: '0px solid #FFC8D5' },
           { duration: 0.8, ease: 'circInOut' }
         );
 
@@ -142,12 +146,7 @@ function Donation() {
           initial={{ marginLeft: '-300px' }}
           className="bg-white z-[3] overflow-hidden absolute w-[200px] h-[200px] m-auto mt-[60px] ml-[60px] left-0 right-0 top-0 bottom-0 rounded-full"
         >
-          <img
-            alt="dummy"
-            src="https://i.pinimg.com/originals/be/f4/04/bef404ca0287ad1c63a774b34846a356.gif"
-            width="100%"
-            height="100%"
-          />
+          <img alt="dummy" src={YuriDancing} width="100%" height="100%" />
         </motion.div>
         <motion.div
           ref={ref}
