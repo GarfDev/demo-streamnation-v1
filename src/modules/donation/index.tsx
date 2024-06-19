@@ -18,13 +18,11 @@ import { useInterval } from 'usehooks-ts';
 import { useRecoilState } from 'recoil';
 import donationAtom from '../../atoms/donations.atom';
 import usePlayerDuo from '../../hooks/usePlayerDuo';
-import useWescan from '../../hooks/useWescan';
 
 import YuriDancing from '../../assets/images/yuri-dancing.gif';
 
 function Donation() {
   const {} = usePlayerDuo();
-  const {} = useWescan();
 
   const audioRef = useRef<HTMLAudioElement>(null);
   const { fontSize, ref } = useFitText();
