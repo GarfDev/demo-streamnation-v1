@@ -1,5 +1,4 @@
 // const webpack = require('webpack');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 module.exports = {
   mode: 'production',
@@ -11,6 +10,5 @@ module.exports = {
     //     NODE_ENV: JSON.stringify('development'),
     //   },
     // }),
-    new BundleAnalyzerPlugin(),
   ],
 };
