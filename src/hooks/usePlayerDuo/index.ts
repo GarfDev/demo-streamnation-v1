@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { useCallback, useEffect, useState } from 'react';
 import { useRecoilState } from 'recoil';
-import useWebSocket from 'react-use-websocket';
+import useWebSocket, { ReadyState } from 'react-use-websocket';
 import {
   PDWSUG,
   donationCheck,
