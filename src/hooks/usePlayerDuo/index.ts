@@ -15,10 +15,14 @@ import donationAtom from '../../atoms/donations.atom';
 const usePlayerDuo = () => {
   const [pingInterval, setPingInterval] = useState(-1);
 
-  const { sendMessage, readyState, lastMessage } = useWebSocket(PDWSUG(), {
-    reconnectInterval: 1,
-    reconnectAttempts: Infinity,
-  });
+  const { sendMessage, readyState, lastMessage, getWebSocket } = useWebSocket(
+    PDWSUG(),
+    {
+      reconnectInterval: 1,
+      reconnectAttempts: Infinity,
+      shouldReconnect: () => true,
+    }
+  );
 
   const [history, setHistory] = useRecoilState(historyAtom);
   const [donations, setDonations] = useRecoilState(donationAtom);
@@ -37,10 +41,10 @@ const usePlayerDuo = () => {
     [history, setHistory]
   );
 
-  const authorization = () => {
-    const secAuth = `40/outside?deviceType=browser&playerId=5e3ff61df87d5c2f78e68974`;
+  function authorization() {
+    const secAuth = `40/outside?deviceType=browser&playerId=5f191a4f315035314c20482b`;
     sendMessage(secAuth);
-  };
+  }
 
   const donationPush = useCallback(
     (donation: IDonation) => {
@@ -86,7 +90,8 @@ const usePlayerDuo = () => {
     if (lastMessage) {
       if (lastMessage.data[0] === '0') {
         initialize(lastMessage.data);
-      } else {
+      }
+      if (lastMessage.data[0] !== '0') {
         const isHaveContent = haveContentCheck(lastMessage.data);
         if (isHaveContent) {
           const isDontaion = donationCheck(lastMessage.data);
@@ -101,10 +106,15 @@ const usePlayerDuo = () => {
   }, [lastMessage]);
 
   useEffect(() => {
-    if (readyState === ReadyState.OPEN) {
+    console.log('readyState', readyState);
+    if (readyState === ReadyState.CLOSED) {
       authorization();
     }
   }, [readyState]);
+
+  useEffect(() => {
+    console.log(pingInterval);
+  }, [pingInterval]);
 
   return { donations: donations || [], readyState };
 };
