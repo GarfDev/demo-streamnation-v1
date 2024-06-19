@@ -97,6 +97,12 @@ const usePlayerDuo = () => {
     }
   }, [lastMessage]);
 
+  useEffect(() => {
+    if (readyState === ReadyState.OPEN) {
+      authorization();
+    }
+  }, [readyState]);
+
   return { donations: donations || [], readyState };
 };
 
