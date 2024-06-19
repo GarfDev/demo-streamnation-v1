@@ -177,10 +177,11 @@ function Donation() {
                 className="drop-shadow-[0_5.2px_5.2px_rgba(0,0,0,0.8)]"
                 style={{ fontSize: amountFontSize }}
               >
-                vì ném vào mặt mình{' '}
+                đã ném{' '}
                 <span className="text-yellow-400">
                   {current?.amount?.toLocaleString()} {current?.currency}
-                </span>
+                </span>{' '}
+                qua cửa sổ nhà <span className="text-[#FFC8D5]">Amie</span>
               </p>
             </motion.div>
 
