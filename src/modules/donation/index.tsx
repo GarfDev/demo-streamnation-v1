@@ -26,8 +26,6 @@ function Donation() {
 
   const audioRef = useRef<HTMLAudioElement>(null);
   const { fontSize, ref } = useFitText();
-  const { fontSize: amountFontSize, ref: amountRef } = useFitText();
-  const { fontSize: messageFontSize, ref: messageRef } = useFitText();
 
   const willChange = useWillChange();
 
@@ -161,9 +159,8 @@ function Donation() {
               className="absolute flex items-center justify-start font-bold w-[700px] h-[200px] text-white"
             >
               <p
-                ref={messageRef}
                 className="drop-shadow-[0_5.2px_5.2px_rgba(0,0,0,0.8)]"
-                style={{ fontSize: messageFontSize }}
+                style={{ fontSize: '50px' }}
               >
                 cảm ơn <span className="text-yellow-400">{current?.name}</span>
               </p>
@@ -176,9 +173,8 @@ function Donation() {
               className="absolute flex items-center justify-start font-bold w-[700px] h-[200px] text-white"
             >
               <p
-                ref={amountRef}
                 className="drop-shadow-[0_5.2px_5.2px_rgba(0,0,0,0.8)]"
-                style={{ fontSize: amountFontSize }}
+                style={{ fontSize: '40px' }}
               >
                 vì đã ném{' '}
                 <span className="text-yellow-400">
@@ -195,9 +191,8 @@ function Donation() {
               className="absolute flex items-center justify-start font-bold w-[700px] h-[200px] text-white"
             >
               <p
-                ref={messageRef}
                 className="drop-shadow-[0_5.2px_5.2px_rgba(0,0,0,0.8)]"
-                style={{ fontSize: messageFontSize }}
+                style={{ fontSize: '40px' }}
               >
                 {current?.message}
               </p>
