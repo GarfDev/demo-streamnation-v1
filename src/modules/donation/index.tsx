@@ -115,7 +115,10 @@ function Donation() {
       };
 
       setTimeout(() => {
-        audioRef.current?.play();
+        if (audioRef.current) {
+          audioRef.current.muted = false;
+          audioRef.current?.play();
+        }
         animation();
       }, 0);
     },
@@ -207,7 +210,7 @@ function Donation() {
           className="bg-white absolute w-[200px] h-[200px] m-auto left-0 right-0 top-0 bottom-0 rounded-full"
         ></motion.div>
 
-        <audio ref={audioRef} src={sound} />
+        <audio muted ref={audioRef} src={sound} />
       </div>
     </LazyMotion>
   );

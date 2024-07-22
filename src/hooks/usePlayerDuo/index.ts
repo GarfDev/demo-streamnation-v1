@@ -15,14 +15,11 @@ import donationAtom from '../../atoms/donations.atom';
 const usePlayerDuo = () => {
   const [pingInterval, setPingInterval] = useState(-1);
 
-  const { sendMessage, readyState, lastMessage, getWebSocket } = useWebSocket(
-    PDWSUG(),
-    {
-      reconnectInterval: 1,
-      reconnectAttempts: Infinity,
-      shouldReconnect: () => true,
-    }
-  );
+  const { sendMessage, readyState, lastMessage } = useWebSocket(PDWSUG(), {
+    reconnectInterval: 1,
+    reconnectAttempts: Infinity,
+    shouldReconnect: () => true,
+  });
 
   const [history, setHistory] = useRecoilState(historyAtom);
   const [donations, setDonations] = useRecoilState(donationAtom);
@@ -42,7 +39,9 @@ const usePlayerDuo = () => {
   );
 
   function authorization() {
-    const secAuth = `40/outside?deviceType=browser&playerId=5f191a4f315035314c20482b`;
+    // 5f191a4f315035314c20482b
+    // 5e3ff61df87d5c2f78e68974
+    const secAuth = `40/outside?deviceType=browser&playerId=5e3ff61df87d5c2f78e68974`;
     sendMessage(secAuth);
   }
 
@@ -108,6 +107,12 @@ const usePlayerDuo = () => {
   useEffect(() => {
     console.log('readyState', readyState);
     if (readyState === ReadyState.CLOSED) {
+      authorization();
+    }
+
+    if (readyState === ReadyState.OPEN) {
+      console.log('readyState', readyState, 'connected');
+
       authorization();
     }
   }, [readyState]);
