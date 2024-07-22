@@ -19,7 +19,7 @@ import { useRecoilState } from 'recoil';
 import donationAtom from '../../atoms/donations.atom';
 import usePlayerDuo from '../../hooks/usePlayerDuo';
 
-import YuriDancing from '../../assets/images/yuri-dancing.gif';
+import DonationImage from '../../assets/images/garfield-dancing.gif';
 
 function Donation() {
   const {} = usePlayerDuo();
@@ -53,7 +53,7 @@ function Donation() {
 
         animate(
           avatarScope.current,
-          { outline: '10px solid #FFC8D5' },
+          { outline: '10px solid #ce692f' },
           { duration: 0.4, ease: 'backInOut' }
         );
 
@@ -101,7 +101,7 @@ function Donation() {
 
         animate(
           avatarScope.current,
-          { outline: '0px solid #FFC8D5' },
+          { outline: '0px solid #ce692f' },
           { duration: 0.8, ease: 'circInOut' }
         );
 
@@ -147,7 +147,7 @@ function Donation() {
           initial={{ marginLeft: '-300px' }}
           className="bg-white z-[3] overflow-hidden absolute w-[200px] h-[200px] m-auto mt-[60px] ml-[60px] left-0 right-0 top-0 bottom-0 rounded-full"
         >
-          <img alt="dummy" src={YuriDancing} width="100%" height="100%" />
+          <img alt="dummy" src={DonationImage} width="100%" height="100%" />
         </motion.div>
         <motion.div
           ref={ref}
@@ -184,7 +184,7 @@ function Donation() {
                 <span className="text-yellow-400">
                   {current?.amount?.toLocaleString()} {current?.currency}
                 </span>{' '}
-                qua cửa sổ nhà <span className="text-[#FFC8D5]">Amie</span>
+                qua cửa sổ nhà <span className="text-[#ce692f]">Mèo Cam</span>
               </p>
             </motion.div>
 
